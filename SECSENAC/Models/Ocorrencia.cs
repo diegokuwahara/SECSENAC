@@ -15,6 +15,12 @@ namespace SECSENAC.Models
         public DateTime DataOcorrencia { get; set; }
         public string Local { get; set; }
         public string Descricao { get; set; }
+        public int QtdAutores { get; set; }
+        public int QtdVeiculos { get; set; }
+        public int NumVitimas { get; set; }
+        public bool houveAgressao { get; set; }
+        public bool houveMorte { get; set; }
+        public bool houveRoubo { get; set; }
         public ICollection<Delito> Delitos { get; set; }
     }
 }

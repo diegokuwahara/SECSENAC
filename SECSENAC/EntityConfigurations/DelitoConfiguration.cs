@@ -15,9 +15,6 @@ namespace SECSENAC.EntityTypeConfigurations
 
             HasKey(d => d.Id);
 
-            Property(o => o.NumVitimas)
-                .IsRequired();
-
             Property(o => o.Nome)
                 .IsRequired()
                 .HasMaxLength(100);

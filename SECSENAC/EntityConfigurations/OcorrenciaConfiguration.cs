@@ -22,6 +22,9 @@ namespace SECSENAC.EntityTypeConfigurations
                 .IsRequired()
                 .HasMaxLength(200);
 
+            Property(o => o.NumVitimas)
+                .IsRequired();
+
             HasMany(o => o.Delitos)
                 .WithMany(d => d.Ocorrencias)
                 .Map(m => {

@@ -15,9 +15,6 @@ namespace SECSENAC.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public int Artigo { get; set; }
-        public int NumVitimas { get; set; }
-        public bool houveMorte { get; set; }
-        public bool houveRoubo { get; set; }
         public ICollection<Ocorrencia> Ocorrencias { get; set; }
     }
 }

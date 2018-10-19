@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using SECSENAC.EntityTypeConfigurations;
 
 namespace SECSENAC.Models
 {
@@ -20,6 +21,9 @@ namespace SECSENAC.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Ocorrencia> Ocorrencias { get; set; }
+        public DbSet<Delito> Delitos { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -28,6 +32,14 @@ namespace SECSENAC.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new OcorrenciaConfiguration());
+            modelBuilder.Configurations.Add(new DelitoConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

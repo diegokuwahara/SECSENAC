@@ -1,8 +1,40 @@
 ﻿
+@model IEnumerable<SECSENAC.Models.Ocorrencia>
 @{
     ViewBag.Title = "Listagem de Ocorrências";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@{ 
+    var numReg = Model.Count();
+}
 <h2>Ocorrências</h2>
+@Html.ActionLink("Nova Ocorrência", "New", null , new { @class = "btn btn-primary" })
+<table id="tabelaOcorrencias" class="table-bordered table">
+    <thead>
+        <tr>
+            <th>
+                Data da Ocorrência
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ocorrencia in Model)
+        {
+            <tr>
+                <td>
+                    @ocorrencia.DataOcorrencia
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 
 
+@section scripts
+{
+    <script>
+        $(function () {
+            $("#tabelaOcorrencias").DataTable();
+        });
+    </script>
+
+}

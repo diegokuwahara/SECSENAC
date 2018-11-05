@@ -1,14 +1,12 @@
-﻿using SECSENAC.DTO_s;
-using SECSENAC.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace SECSENAC.ViewModels
+namespace SECSENAC.DTO_s
 {
-    public class OcorrenciaFormViewModel
+    public class OcorrenciaDto
     {
         public int Id { get; set; }
 
@@ -47,10 +45,9 @@ namespace SECSENAC.ViewModels
         [Display(Name = "Houve roubo?")]
         public bool houveRoubo { get; set; }
 
-        public OcorrenciaFormViewModel()
+        public OcorrenciaDto()
         {
             Id = 0;
         }
-        public IEnumerable<Delito> Delitos { get; set; }
     }
 }
